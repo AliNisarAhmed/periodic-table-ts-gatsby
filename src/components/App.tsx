@@ -1,9 +1,7 @@
-import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 import { ElementsList } from "./ElementsList";
 import { IElement } from "../utils/types";
-
-import '../styles/main.scss';
 
 const App = props => {
   const data = useStaticQuery(graphql`
@@ -11,18 +9,21 @@ const App = props => {
       dataJson {
         elements {
           symbol
+          number
+          atomic_mass
+          name
+          group
+          category
         }
       }
     }
   `);
 
-  const elements: IElement[]  = data.dataJson.elements;
+  const elements: IElement[] = data.dataJson.elements;
 
-  return (
-    <div className="container">
-      <ElementsList elements={elements} />
-    </div>
-  )
-}
+  console.log("elements: ", elements);
 
-export default App
+  return <ElementsList elements={elements} />;
+};
+
+export default App;

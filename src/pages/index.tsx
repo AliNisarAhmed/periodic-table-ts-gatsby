@@ -1,13 +1,14 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
 
-import App from "../components/App"
-import Layout from "../components/layout"
+import App from "../components/App";
+import Layout from "../components/layout";
+
+import "../styles/index.scss";
 
 const IndexPage = () => (
   <Layout>
     <App />
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
