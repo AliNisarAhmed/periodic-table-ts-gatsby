@@ -1,7 +1,8 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { ElementsList } from "./ElementsList";
+import { PeriodicTable } from "./PeriodicTable";
 import { IElement } from "../utils/types";
+import Legend from "./Legend";
 
 const App = props => {
   const data = useStaticQuery(graphql`
@@ -23,7 +24,12 @@ const App = props => {
 
   console.log("elements: ", elements);
 
-  return <ElementsList elements={elements} />;
+  return (
+    <div className="app">
+      <PeriodicTable elements={elements} />
+      <Legend />
+    </div>
+  );
 };
 
 export default App;

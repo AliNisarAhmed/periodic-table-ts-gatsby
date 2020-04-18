@@ -1,0 +1,65 @@
+.legend {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid fuchsia;
+  width: fit-content;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  &__color {
+    border-radius: 100%;
+    width: 2rem;
+    height: 2rem;
+
+    &--nonmetal {
+      background-color: $nonmetal;
+    }
+
+    &--metal {
+      background-color: $metal;
+    }
+
+    &--halogen {
+      background-color: $halogen;
+    }
+
+    &--nobelGas {
+      background-color: $nobleGas;
+    }
+
+    &--alkaliMetal {
+      background-color: $alkaliMetal;
+    }
+
+    &--alkalineEarthMetal {
+      background-color: $alkalineEarthMetal;
+    }
+
+    &--metalloid {
+      background-color: $metalloid;
+    }
+
+    &--transitionMetal {
+      background-color: $transitionMetal;
+    }
+
+    &--lanthanoid {
+      background-color: $lanthanoid;
+    }
+
+    &--actinoid {
+      background-color: $actinoid;
+    }
+  }
+
+  &__text {
+    flex-grow: 4;
+    margin-left: 3rem;
+    font-size: 1.5rem;
+    color: whitesmoke;
+  }
+}

@@ -27,14 +27,14 @@ body {
   grid-template-rows: repeat(7, 1fr);
   grid-gap: 2px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 3rem auto;
 }
 
 .innerTransitionMetals {
-  margin-top: 10px;
   display: grid;
   grid-template-columns: repeat(15, 1fr);
   grid-template-rows: 1fr 1fr;
+  width: 80%;
 }
 
 .center {

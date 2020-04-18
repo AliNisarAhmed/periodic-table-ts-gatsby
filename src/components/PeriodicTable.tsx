@@ -8,7 +8,7 @@ interface IProps {
   children?: any;
 }
 
-export const ElementsList: React.FC<IProps> = ({ elements }) => {
+export const PeriodicTable: React.FC<IProps> = ({ elements }) => {
   const [normalElements, innerTransitionMetals] = partition(
     e => e.category !== "actinide" && e.category !== "lanthanide",
     elements
