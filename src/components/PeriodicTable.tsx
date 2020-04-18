@@ -6,9 +6,10 @@ import { partition } from "ramda";
 interface IProps {
   elements: IElement[];
   children?: any;
+  searchTerm: string;
 }
 
-export const PeriodicTable: React.FC<IProps> = ({ elements }) => {
+export const PeriodicTable: React.FC<IProps> = ({ elements, searchTerm }) => {
   const [normalElements, innerTransitionMetals] = partition(
     e => e.category !== "actinide" && e.category !== "lanthanide",
     elements
@@ -16,16 +17,30 @@ export const PeriodicTable: React.FC<IProps> = ({ elements }) => {
 
   return (
     <React.Fragment>
-      <div className="container">
-        {normalElements.map(elem => (
-          <Element element={elem} />
-        ))}
-      </div>
-      <div className="innerTransitionMetals">
-        {innerTransitionMetals.map(elem => (
-          <Element element={elem} />
-        ))}
-      </div>
+      {searchTerm.trim() ? (
+        <div className="searchDisplay">
+          {elements
+            .filter(elem =>
+              elem.name.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+            .map(elem => (
+              <Element element={elem} />
+            ))}
+        </div>
+      ) : (
+        <React.Fragment>
+          <div className="container">
+            {normalElements.map(elem => (
+              <Element element={elem} />
+            ))}
+          </div>
+          <div className="innerTransitionMetals">
+            {innerTransitionMetals.map(elem => (
+              <Element element={elem} />
+            ))}
+          </div>
+        </React.Fragment>
+      )}
     </React.Fragment>
   );
 };
