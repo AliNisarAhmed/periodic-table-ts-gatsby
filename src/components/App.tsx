@@ -13,12 +13,34 @@ const App = props => {
     query allElementsQuery {
       dataJson {
         elements {
-          symbol
-          number
-          atomic_mass
           name
           group
+          appearance
+          atomic_mass
+          boil
           category
+          color
+          density
+          discovered_by
+          melt
+          molar_heat
+          named_by
+          number
+          period
+          phase
+          source
+          spectral_img
+          summary
+          symbol
+          xpos
+          ypos
+          shells
+          electron_configuration
+          electron_affinity
+          electronegativity_pauling
+          ionization_energies
+          number
+          molar_heat
         }
       }
     }

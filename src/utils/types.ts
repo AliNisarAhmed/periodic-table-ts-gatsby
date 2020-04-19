@@ -25,6 +25,7 @@ export interface IElement {
   electronegativity_pauling: null | number;
   ionization_energies: number[];
   color: null | string;
+  molar_heat: string | null;
 }
 
 export type Group = "metal" | "nonmetal" | "noble_gas" | "alkali_metal" | "alkaline_earth_metal" | "metalloid" | "halogen" | "transition_metal" | "lanthanoid" | "actinoid";

@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react";
 import { IElement } from "../utils/types";
 import Element from "./Element";
 import { partition } from "ramda";
+import ElementDetail from "./ElementDetail";
 
 interface IProps {
   elements: IElement[];
@@ -15,6 +16,9 @@ export const PeriodicTable: React.FC<IProps> = ({
   searchTerm,
   highlighted,
 }) => {
+  const [selectedElement, setSelectedElement] = useState<IElement | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
   const [normalElements, innerTransitionMetals] = useMemo(
     () =>
       partition(
@@ -33,23 +37,50 @@ export const PeriodicTable: React.FC<IProps> = ({
               elem.name.toLowerCase().includes(searchTerm.toLowerCase())
             )
             .map(elem => (
-              <Element element={elem} highlighted={highlighted} />
+              <Element
+                element={elem}
+                highlighted={highlighted}
+                openModal={openModal}
+              />
             ))}
         </div>
       ) : (
         <React.Fragment>
           <div className="container">
             {normalElements.map(elem => (
-              <Element element={elem} highlighted={highlighted} />
+              <Element
+                element={elem}
+                highlighted={highlighted}
+                openModal={openModal}
+              />
             ))}
           </div>
           <div className="innerTransitionMetals">
             {innerTransitionMetals.map(elem => (
-              <Element element={elem} highlighted={highlighted} />
+              <Element
+                element={elem}
+                highlighted={highlighted}
+                openModal={openModal}
+              />
             ))}
           </div>
         </React.Fragment>
       )}
+      <ElementDetail
+        isModalOpen={isModalOpen}
+        closeModal={closeModal}
+        element={selectedElement}
+      />
     </React.Fragment>
   );
+
+  function closeModal() {
+    setSelectedElement(null);
+    setIsModalOpen(false);
+  }
+
+  function openModal(elem: IElement) {
+    setSelectedElement(elem);
+    setIsModalOpen(true);
+  }
 };
