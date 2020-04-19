@@ -4,10 +4,10 @@ import { PeriodicTable } from "./PeriodicTable";
 import { IElement } from "../utils/types";
 import Legend from "./Legend";
 import Search from "./Search";
-import { func } from "prop-types";
 
 const App = props => {
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [highlighted, setHighlighted] = useState<string | null>(null);
 
   const data = useStaticQuery(graphql`
     query allElementsQuery {
@@ -26,12 +26,14 @@ const App = props => {
 
   const elements: IElement[] = data.dataJson.elements;
 
-  console.log("elements: ", elements);
-
   return (
     <div className="app">
-      <PeriodicTable elements={elements} searchTerm={searchTerm} />
-      <Legend />
+      <PeriodicTable
+        elements={elements}
+        searchTerm={searchTerm}
+        highlighted={highlighted}
+      />
+      <Legend setHighlighted={setHighlighted} />
       <Search searchTerm={searchTerm} onSearchTermChange={onSearchTermChange} />
     </div>
   );

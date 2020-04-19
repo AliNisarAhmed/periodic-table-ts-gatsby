@@ -1,48 +1,59 @@
 import React from "react";
+import LegendItem from "./LegendItem";
 
-const Legend = () => {
+interface IProps {
+  setHighlighted: any;
+}
+
+const Legend = ({ setHighlighted }) => {
   return (
     <div className="legend">
-      <div className="legend__item">
-        <div className="legend__color legend__color--metal"></div>
-        <div className="legend__text">Metals</div>
-      </div>
-      <div className="legend__item">
-        <div className="legend__color legend__color--nonmetal"></div>
-        <div className="legend__text">Non Metals</div>
-      </div>
-      <div className="legend__item">
-        <div className="legend__color legend__color--halogen"></div>
-        <div className="legend__text">Halogens</div>
-      </div>
-      <div className="legend__item">
-        <div className="legend__color legend__color--nobelGas"></div>
-        <div className="legend__text">Nobel Gasses</div>
-      </div>
-      <div className="legend__item">
-        <div className="legend__color legend__color--alkaliMetal"></div>
-        <div className="legend__text">Alkali Metals</div>
-      </div>
-      <div className="legend__item">
-        <div className="legend__color legend__color--transitionMetal"></div>
-        <div className="legend__text">Transition Metals</div>
-      </div>
-      <div className="legend__item">
-        <div className="legend__color legend__color--alkalineEarthMetal"></div>
-        <div className="legend__text">Alkaline Earth Metals</div>
-      </div>
-      <div className="legend__item">
-        <div className="legend__color legend__color--metalloid"></div>
-        <div className="legend__text">Metalloids</div>
-      </div>
-      <div className="legend__item">
-        <div className="legend__color legend__color--lanthanoid"></div>
-        <div className="legend__text">Lanthanides</div>
-      </div>
-      <div className="legend__item">
-        <div className="legend__color legend__color--actinoid"></div>
-        <div className="legend__text">Actinides</div>
-      </div>
+      <LegendItem group="metal" text="Metal" setHighlighted={setHighlighted} />
+      <LegendItem
+        group="nonmetal"
+        text="Non Metal"
+        setHighlighted={setHighlighted}
+      />
+      <LegendItem
+        group="halogen"
+        text="Halogens"
+        setHighlighted={setHighlighted}
+      />
+      <LegendItem
+        group="noble_gas"
+        text="Nobel Gasses"
+        setHighlighted={setHighlighted}
+      />
+      <LegendItem
+        group="alkali_metal"
+        text="Alikali Metal"
+        setHighlighted={setHighlighted}
+      />
+      <LegendItem
+        group="transition_metal"
+        text="Transition Metal"
+        setHighlighted={setHighlighted}
+      />
+      <LegendItem
+        group="alkaline_earth_metal"
+        text="Alkaline Earth Metal"
+        setHighlighted={setHighlighted}
+      />
+      <LegendItem
+        group="metalloid"
+        text="Metalloids"
+        setHighlighted={setHighlighted}
+      />
+      <LegendItem
+        group="lanthanoid"
+        text="Lanthanides"
+        setHighlighted={setHighlighted}
+      />
+      <LegendItem
+        group="actinoid"
+        text="Actinides"
+        setHighlighted={setHighlighted}
+      />
     </div>
   );
 };
