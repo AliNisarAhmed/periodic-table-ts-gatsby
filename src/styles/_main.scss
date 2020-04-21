@@ -1,12 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
 $boxHeight: 50px;
 $boxWidth: 50px;
 
 $white: rgb(226, 221, 221);
-$black: black;
 
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
 }
 
 *,

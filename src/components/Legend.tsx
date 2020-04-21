@@ -26,7 +26,7 @@ const Legend = ({ setHighlighted }) => {
       />
       <LegendItem
         group="alkali_metal"
-        text="Alikali Metal"
+        text="Alkali Metal"
         setHighlighted={setHighlighted}
       />
       <LegendItem

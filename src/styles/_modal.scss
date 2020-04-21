@@ -1,11 +1,10 @@
 .modal {
-  border: 1px solid fuchsia;
-  background-color: black;
+  background-color: $black;
   position: absolute;
 
   left: 2%;
   right: 2%;
-  top: 4%;
+  top: 3%;
   bottom: 4%;
 
   opacity: 1;
@@ -17,13 +16,17 @@
 
     display: grid;
     grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr;
+
+    height: 100%;
+
+    position: relative;
   }
 
   &__symbol {
     width: 20rem;
     height: 20rem;
-    color: fuchsia;
-    border: 1px solid fuchsia;
+    border: 1px solid currentColor;
     padding: 1rem;
 
     h1 {
@@ -35,7 +38,144 @@
 
   &__facts {
     font-size: 2rem;
-    color: fuchsia;
+    line-height: 1.5;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+  }
+
+  &__link {
+    justify-self: start;
+    text-decoration: underline;
+    color: currentColor;
+    margin-top: auto;
+    margin-bottom: 1rem;
+  }
+
+  &__link:hover,
+  &__link:focus {
+    color: goldenrod;
+  }
+
+  &__fieldName {
+    margin-right: 1rem;
+
+    &--group {
+      text-transform: capitalize;
+    }
+
+    &--summary {
+      font-size: 130%;
+      font-style: italic;
+      margin-top: auto;
+    }
+  }
+
+  // Dynamic styles
+
+  &--metal {
+    color: $metal;
+    border: 1px solid $metal;
+  }
+
+  &--nonmetal {
+    color: $nonmetal;
+    border: 1px solid $nonmetal;
+  }
+
+  &--noble_gas {
+    color: $noble_gas;
+    border: 1px solid $noble_gas;
+  }
+
+  &--alkali_metal {
+    color: $alkali_metal;
+    border: 1px solid $alkali_metal;
+  }
+
+  &--alkaline_earth_metal {
+    color: $alkaline_earth_metal;
+    border: 1px solid $alkaline_earth_metal;
+  }
+
+  &--metalloid {
+    color: $metalloid;
+    border: 1px solid $metalloid;
+  }
+
+  &--halogen {
+    color: $halogen;
+    border: 1px solid $halogen;
+  }
+
+  &--transition_metal {
+    color: $transition_metal;
+    border: 1px solid $transition_metal;
+  }
+
+  &--lanthanoid {
+    color: $lanthanoid;
+    border: 1px solid $lanthanoid;
+  }
+
+  &--actinoid {
+    color: $actinoid;
+    border: 1px solid $actinoid;
+  }
+
+  &__button {
+    &--container {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+    }
+
+    position: relative;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    outline: none;
+    color: gray;
+
+    &::before,
+    &::after {
+      display: inline-block;
+      content: " ";
+      font-size: 3rem;
+      height: 3rem;
+      width: 4px;
+      background: gray;
+      color: gray;
+      transform-origin: center;
+
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      transform: translate(-50%, -50%);
+    }
+
+    &::before {
+      transform: rotate(-40deg);
+    }
+
+    &::after {
+      transform: rotate(40deg);
+    }
+
+    &:hover::before,
+    &:hover::after,
+    &:focus::before,
+    &:focus::after {
+      background: goldenrod;
+    }
+  }
+
+  &__button:focus {
+    color: goldenrod;
+    outline: none;
   }
 }
 
