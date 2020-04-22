@@ -33,7 +33,7 @@ const ElementDetail: React.FC<IProps> = ({
           <div className="modal__symbol center">
             <h1>{element.symbol}</h1>
           </div>
-          <div className="modal__facts">
+          <div className="modal__facts modal__facts--left">
             <p>
               <span className="modal__fieldName">Name:</span> {element.name}
             </p>
@@ -58,6 +58,8 @@ const ElementDetail: React.FC<IProps> = ({
                 {element.category}
               </span>
             </p>
+          </div>
+          <div className="modal__facts modal__facts--right">
             <p>
               <span className="modal__fieldName">Phase:</span> {element.phase}
             </p>
@@ -80,13 +82,14 @@ const ElementDetail: React.FC<IProps> = ({
               <span className="modal__fieldName">Density:</span>{" "}
               {element.density}
             </p>
-            <p>
-              <span className="modal__fieldName modal__fieldName--summary">
-                Summary:
-              </span>
-              <br />
-              {element.summary}
-            </p>
+          </div>
+          <div className="modal__summary">
+            <span className="modal__fieldName modal__fieldName--summary">
+              Summary:
+            </span>
+            <p>{element.summary}</p>
+          </div>
+          <div className="modal__wikipedia">
             <a className="modal__link" href={element.source} target="_blank">
               Read more on Wikipedia
             </a>

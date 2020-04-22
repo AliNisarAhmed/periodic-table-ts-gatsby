@@ -2,10 +2,10 @@
   background-color: $black;
   position: absolute;
 
-  left: 2%;
-  right: 2%;
-  top: 3%;
-  bottom: 4%;
+  left: 1rem;
+  right: 2rem;
+  top: 1rem;
+  bottom: 1rem;
 
   opacity: 1;
 
@@ -15,8 +15,8 @@
     padding: 2rem;
 
     display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
 
     height: 100%;
 
@@ -26,7 +26,7 @@
   &__symbol {
     width: 20rem;
     height: 20rem;
-    border: 1px solid currentColor;
+    border: 2px solid currentColor;
     padding: 1rem;
 
     h1 {
@@ -37,16 +37,44 @@
   }
 
   &__facts {
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 1.5;
 
     display: flex;
-    flex-flow: column;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    &--left {
+      grid-column: 2 / 4;
+      grid-row: 1 / 3;
+    }
+
+    &--right {
+      grid-column: 4 / -1;
+      grid-row: 1 / 3;
+    }
+  }
+
+  &__summary {
+    grid-column: 2 / -1;
+    grid-row: 4 / 5;
+    font-size: 1.5rem;
+
+    p {
+      font-size: 1.5rem;
+      line-height: 1.5;
+    }
+  }
+
+  &__wikipedia {
+    grid-row: 5 / -1;
+    grid-column: 2 / -1;
+
+    font-size: 1.5rem;
+    align-self: end;
   }
 
   &__link {
-    justify-self: start;
     text-decoration: underline;
     color: currentColor;
     margin-top: auto;
@@ -66,9 +94,10 @@
     }
 
     &--summary {
-      font-size: 130%;
+      font-size: 3rem;
       font-style: italic;
-      margin-top: auto;
+      margin-bottom: 3rem;
+      display: inline-block;
     }
   }
 
@@ -128,7 +157,7 @@
     &--container {
       position: absolute;
       right: 1rem;
-      top: 1rem;
+      top: 0.5rem;
     }
 
     position: relative;
