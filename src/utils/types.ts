@@ -28,4 +28,14 @@ export interface IElement {
   molar_heat: string | null;
 }
 
-export type Group = "metal" | "nonmetal" | "noble_gas" | "alkali_metal" | "alkaline_earth_metal" | "metalloid" | "halogen" | "transition_metal" | "lanthanoid" | "actinoid";
+export type Group
+  = "metal"
+  | "nonmetal"
+  | "noble_gas"
+  | "alkali_metal"
+  | "alkaline_earth_metal"
+  | "metalloid"
+  | "halogen"
+  | "transition_metal"
+  | "lanthanoid"
+  | "actinoid";

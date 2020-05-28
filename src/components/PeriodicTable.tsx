@@ -22,6 +22,7 @@ export const PeriodicTable: React.FC<IProps> = ({
 }) => {
   const [selectedElement, setSelectedElement] = useState<IElement | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [highlightedGroup, setHighlightedGroup] = useState<number | null>(null);
 
   const [normalElements, innerTransitionMetals] = useMemo(
     () =>
@@ -45,13 +46,18 @@ export const PeriodicTable: React.FC<IProps> = ({
                 element={elem}
                 highlighted={highlighted}
                 openModal={openModal}
+                highlightedPeriod={null}
+                highlightedGroup={null}
               />
             ))}
         </div>
       ) : (
         <React.Fragment>
           <div>
-            <GroupNumbers />
+            <GroupNumbers
+              onMouseEnterGroup={onMouseEnterGroup}
+              onMouseLeaveGroup={onMouseLeaveGroup}
+            />
             <div className="container">
               {normalElements.map(elem => (
                 <Element
@@ -59,6 +65,7 @@ export const PeriodicTable: React.FC<IProps> = ({
                   highlighted={highlighted}
                   openModal={openModal}
                   highlightedPeriod={highlightedPeriod}
+                  highlightedGroup={highlightedGroup}
                 />
               ))}
             </div>
@@ -69,6 +76,7 @@ export const PeriodicTable: React.FC<IProps> = ({
                   highlighted={highlighted}
                   openModal={openModal}
                   highlightedPeriod={highlightedPeriod}
+                  highlightedGroup={highlightedGroup}
                 />
               ))}
             </div>
@@ -91,5 +99,13 @@ export const PeriodicTable: React.FC<IProps> = ({
   function openModal(elem: IElement) {
     setSelectedElement(elem);
     setIsModalOpen(true);
+  }
+
+  function onMouseEnterGroup(group: number) {
+    setHighlightedGroup(group);
+  }
+
+  function onMouseLeaveGroup() {
+    setHighlightedGroup(null);
   }
 };

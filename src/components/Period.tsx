@@ -28,7 +28,6 @@ const Period: React.FC<IProps> = ({
   }
 
   function handleMouseLeave() {
-    console.log("leaving");
     onMouseLeavePeriod();
   }
 };

@@ -24,4 +24,8 @@
     margin: 0;
     text-align: center;
   }
+
+  &:not(:hover) {
+    color: rgba(white, 0.4);
+  }
 }

@@ -9,3 +9,15 @@ export function setPeriodHighlightClassName(highlightedPeriod: number | null, cu
     }
   }
 }
+
+export function setGroupHighlightClassName(highlightedGroup: number | null, currentGroup: number): string {
+  if (highlightedGroup === null) {
+    return '';
+  } else {
+    if (highlightedGroup === currentGroup) {
+      return 'highlightedgroup';
+    } else {
+      return 'dim';
+    }
+  }
+}

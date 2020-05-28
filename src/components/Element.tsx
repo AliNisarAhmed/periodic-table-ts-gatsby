@@ -1,12 +1,16 @@
 import React from "react";
 import { IElement } from "../utils/types";
-import { setPeriodHighlightClassName } from "../utils/helpers";
+import {
+  setPeriodHighlightClassName,
+  setGroupHighlightClassName,
+} from "../utils/helpers";
 
 interface IProps {
   element: IElement;
   highlighted: string | null;
   openModal: any;
   highlightedPeriod: number | null;
+  highlightedGroup: number | null;
 }
 
 const Element: React.FC<IProps> = ({
@@ -14,10 +18,14 @@ const Element: React.FC<IProps> = ({
   highlighted,
   openModal,
   highlightedPeriod,
+  highlightedGroup,
 }) => {
-  const className = `box ${element.symbol.toLowerCase()} ${element.group} ${
-    highlighted === element.group ? "highlight" : null
-  } ${setPeriodHighlightClassName(highlightedPeriod, element.period)}`;
+  const className = `box
+    ${element.symbol.toLowerCase()} ${element.group}
+    ${highlighted === element.group ? "highlight" : null}
+    ${setPeriodHighlightClassName(highlightedPeriod, element.period)}
+    ${setGroupHighlightClassName(highlightedGroup, element.xpos)}
+  `;
 
   return (
     <div
