@@ -4,7 +4,7 @@ import { PeriodicTable } from "./PeriodicTable";
 import { IElement } from "../utils/types";
 import Legend from "./Legend";
 import Search from "./Search";
-import GroupColumn from "./GroupColumn";
+import PeriodNumbers from "./PeriodNumbers";
 
 const App = props => {
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -52,7 +52,7 @@ const App = props => {
   return (
     <React.Fragment>
       <div className="app">
-        <GroupColumn />
+        <PeriodNumbers />
         <PeriodicTable
           elements={elements}
           searchTerm={searchTerm}

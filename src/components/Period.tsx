@@ -7,7 +7,7 @@ interface IProps {
 const Period: React.FC<IProps> = props => {
   return (
     <div className="period">
-      <p>{props.value}</p>
+      <p>{props.value || null}</p>
     </div>
   );
 };

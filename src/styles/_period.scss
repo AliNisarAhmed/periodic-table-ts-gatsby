@@ -1,24 +1,29 @@
-.periodRow {
+.periodNumbers {
   display: grid;
-  grid-template-columns: repeat(18, 1fr);
+  grid-template-rows: $periodBoxHeight repeat(7, $elementBoxHeight);
   grid-gap: 2px;
+  margin-right: 2px;
 }
 
 .period {
-  width: $elementBoxWidth;
-  height: $periodBoxHeight;
+  height: $elementBoxHeight;
+  width: $periodBoxHeight;
   font-size: $periodFontSize;
   cursor: pointer;
 
-  border: transparent;
-  border-left: 1px solid gray;
-
   color: white;
-  background-color: transparent;
 
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+
+  border-bottom: 1px solid gray;
+
+  &:first-child {
+    height: $periodBoxHeight;
+    border-bottom: none;
+    margin-bottom: 0.5rem;
+  }
 
   p {
     margin: 0;

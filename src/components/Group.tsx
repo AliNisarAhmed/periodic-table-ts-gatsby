@@ -7,7 +7,7 @@ interface IProps {
 const Group: React.FC<IProps> = props => {
   return (
     <div className="group">
-      <p>{props.value || null}</p>
+      <p>{props.value}</p>
     </div>
   );
 };
