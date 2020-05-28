@@ -20,6 +20,7 @@ const ElementDetail: React.FC<IProps> = ({
   return (
     <div>
       <ReactModal
+        closeTimeoutMS={500}
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         className={`modal modal--${element.group}`}

@@ -49,15 +49,17 @@ const App = props => {
   const elements: IElement[] = data.dataJson.elements;
 
   return (
-    <div className="app">
-      <PeriodicTable
-        elements={elements}
-        searchTerm={searchTerm}
-        highlighted={highlighted}
-      />
-      <Legend setHighlighted={setHighlighted} />
+    <React.Fragment>
+      <div className="app">
+        <PeriodicTable
+          elements={elements}
+          searchTerm={searchTerm}
+          highlighted={highlighted}
+        />
+        <Legend setHighlighted={setHighlighted} />
+      </div>
       <Search searchTerm={searchTerm} onSearchTermChange={onSearchTermChange} />
-    </div>
+    </React.Fragment>
   );
 
   function onSearchTermChange(value: string) {
