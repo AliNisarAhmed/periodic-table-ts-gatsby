@@ -11,12 +11,14 @@ interface IProps {
   children?: any;
   searchTerm: string;
   highlighted: string | null;
+  highlightedPeriod: number | null;
 }
 
 export const PeriodicTable: React.FC<IProps> = ({
   elements,
   searchTerm,
   highlighted,
+  highlightedPeriod,
 }) => {
   const [selectedElement, setSelectedElement] = useState<IElement | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -56,6 +58,7 @@ export const PeriodicTable: React.FC<IProps> = ({
                   element={elem}
                   highlighted={highlighted}
                   openModal={openModal}
+                  highlightedPeriod={highlightedPeriod}
                 />
               ))}
             </div>
@@ -65,6 +68,7 @@ export const PeriodicTable: React.FC<IProps> = ({
                   element={elem}
                   highlighted={highlighted}
                   openModal={openModal}
+                  highlightedPeriod={highlightedPeriod}
                 />
               ))}
             </div>

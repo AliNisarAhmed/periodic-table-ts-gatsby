@@ -9,6 +9,9 @@ import PeriodNumbers from "./PeriodNumbers";
 const App = props => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [highlighted, setHighlighted] = useState<string | null>(null);
+  const [highlightedPeriod, setHighlightedPeriod] = useState<number | null>(
+    null
+  );
 
   const data = useStaticQuery(graphql`
     query allElementsQuery {
@@ -52,11 +55,15 @@ const App = props => {
   return (
     <React.Fragment>
       <div className="app">
-        <PeriodNumbers />
+        <PeriodNumbers
+          onMouseEnterPeriod={onMouseEnterPeriod}
+          onMouseLeavePeriod={onMouseLeavePeriod}
+        />
         <PeriodicTable
           elements={elements}
           searchTerm={searchTerm}
           highlighted={highlighted}
+          highlightedPeriod={highlightedPeriod}
         />
         <Legend setHighlighted={setHighlighted} />
       </div>
@@ -66,6 +73,14 @@ const App = props => {
 
   function onSearchTermChange(value: string) {
     setSearchTerm(value);
+  }
+
+  function onMouseEnterPeriod(period: number) {
+    setHighlightedPeriod(period);
+  }
+
+  function onMouseLeavePeriod() {
+    setHighlightedPeriod(null);
   }
 };
 
