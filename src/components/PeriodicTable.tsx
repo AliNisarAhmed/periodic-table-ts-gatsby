@@ -3,6 +3,7 @@ import { IElement } from "../utils/types";
 import Element from "./Element";
 import { partition } from "ramda";
 import ElementDetail from "./ElementDetail";
+import Period from "./Period";
 
 interface IProps {
   elements: IElement[];
@@ -10,6 +11,8 @@ interface IProps {
   searchTerm: string;
   highlighted: string | null;
 }
+
+const periods = Array.from({ length: 18 }, (x, i) => i + 1);
 
 export const PeriodicTable: React.FC<IProps> = ({
   elements,
@@ -46,23 +49,30 @@ export const PeriodicTable: React.FC<IProps> = ({
         </div>
       ) : (
         <React.Fragment>
-          <div className="container">
-            {normalElements.map(elem => (
-              <Element
-                element={elem}
-                highlighted={highlighted}
-                openModal={openModal}
-              />
-            ))}
-          </div>
-          <div className="innerTransitionMetals">
-            {innerTransitionMetals.map(elem => (
-              <Element
-                element={elem}
-                highlighted={highlighted}
-                openModal={openModal}
-              />
-            ))}
+          <div>
+            <div className="periodRow">
+              {periods.map(p => (
+                <Period value={p} />
+              ))}
+            </div>
+            <div className="container">
+              {normalElements.map(elem => (
+                <Element
+                  element={elem}
+                  highlighted={highlighted}
+                  openModal={openModal}
+                />
+              ))}
+            </div>
+            <div className="innerTransitionMetals">
+              {innerTransitionMetals.map(elem => (
+                <Element
+                  element={elem}
+                  highlighted={highlighted}
+                  openModal={openModal}
+                />
+              ))}
+            </div>
           </div>
         </React.Fragment>
       )}

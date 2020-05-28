@@ -1,0 +1,27 @@
+.periodRow {
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  grid-gap: 2px;
+}
+
+.period {
+  width: $elementBoxWidth;
+  height: $periodBoxHeight;
+  font-size: $periodFontSize;
+  cursor: pointer;
+
+  border: transparent;
+  border-left: 1px solid gray;
+
+  color: white;
+  background-color: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    margin: 0;
+    text-align: center;
+  }
+}

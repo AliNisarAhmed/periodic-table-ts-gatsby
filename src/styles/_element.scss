@@ -1,9 +1,9 @@
 .box {
-  border: 1px solid rgb(228, 221, 221);
+  // border: 1px solid rgb(228, 221, 221);
   background-color: black;
-  width: 6.3rem;
-  height: 6.3rem;
-  font-size: 1.6rem;
+  width: $elementBoxWidth;
+  height: $elementBoxHeight;
+  font-size: $elementBoxFontSize;
   cursor: pointer;
 
   display: grid;
@@ -17,7 +17,7 @@
     padding: 0 0.2rem;
     transform: scaleX(1.6) scaleY(1.6);
     z-index: 2;
-    border: 2px solid goldenrod;
+    border: $elementBoxBorder solid goldenrod;
 
     align-items: start;
 
@@ -102,52 +102,52 @@
 }
 
 .nonmetal {
-  border: 2px solid $nonmetal;
+  border: $elementBoxBorder solid $nonmetal;
   color: $nonmetal;
 }
 
 .noble_gas {
-  border: 2px solid $noble_gas;
+  border: $elementBoxBorder solid $noble_gas;
   color: $noble_gas;
 }
 
 .alkali_metal {
-  border: 2px solid $alkali_metal;
+  border: $elementBoxBorder solid $alkali_metal;
   color: $alkali_metal;
 }
 
 .alkaline_earth_metal {
-  border: 2px solid $alkaline_earth_metal;
+  border: $elementBoxBorder solid $alkaline_earth_metal;
   color: $alkaline_earth_metal;
 }
 
 .metalloid {
-  border: 2px solid $metalloid;
+  border: $elementBoxBorder solid $metalloid;
   color: $metalloid;
 }
 
 .transition_metal {
-  border: 2px solid $transition_metal;
+  border: $elementBoxBorder solid $transition_metal;
   color: $transition_metal;
 }
 
 .metal {
-  border: 2px solid $metal;
+  border: $elementBoxBorder solid $metal;
   color: $metal;
 }
 
 .halogen {
-  border: 2px solid $halogen;
+  border: $elementBoxBorder solid $halogen;
   color: $halogen;
 }
 
 .lanthanoid {
-  border: 2px solid $lanthanoid;
+  border: $elementBoxBorder solid $lanthanoid;
   color: $lanthanoid;
 }
 
 .actinoid {
-  border: 2px solid $actinoid;
+  border: $elementBoxBorder solid $actinoid;
   color: $actinoid;
 }
 
