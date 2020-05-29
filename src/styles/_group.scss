@@ -1,4 +1,7 @@
 .groupNumbers {
+  grid-row: 1 / 2;
+  grid-column: 1 / -1;
+
   display: grid;
   grid-template-columns: repeat(18, 1fr);
   grid-gap: 2px;

@@ -58,6 +58,7 @@ const App = props => {
         <PeriodNumbers
           onMouseEnterPeriod={onMouseEnterPeriod}
           onMouseLeavePeriod={onMouseLeavePeriod}
+          searchTerm={searchTerm}
         />
         <PeriodicTable
           elements={elements}

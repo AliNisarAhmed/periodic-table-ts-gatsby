@@ -23,7 +23,17 @@ body {
   background: rgb(40, 44, 52);
 }
 
+.periodicTable {
+  display: grid;
+  grid-template-columns: $elementBoxWidth $elementBoxWidth 1fr;
+  grid-template-rows: repeat(min-content, 3);
+  grid-gap: 2px;
+}
+
 .container {
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+
   display: grid;
   grid-template-columns: repeat(18, 1fr);
   grid-template-rows: repeat(7, 1fr);
@@ -33,9 +43,12 @@ body {
 }
 
 .innerTransitionMetals {
+  grid-column: 3 / -1;
+
   display: grid;
   grid-template-columns: repeat(15, 1fr);
   grid-template-rows: 1fr 1fr;
+  grid-gap: 2px;
   width: 80%;
 }
 

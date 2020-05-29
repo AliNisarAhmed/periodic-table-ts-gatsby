@@ -22,7 +22,7 @@ const Element: React.FC<IProps> = ({
 }) => {
   const className = `box
     ${element.symbol.toLowerCase()} ${element.group}
-    ${highlighted === element.group ? "highlight" : null}
+    ${highlighted === null ? "" : highlighted === element.group ? "" : "dim"}
     ${setPeriodHighlightClassName(highlightedPeriod, element.period)}
     ${setGroupHighlightClassName(highlightedGroup, element.xpos)}
   `;
