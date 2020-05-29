@@ -19,6 +19,7 @@ const GroupNumbers: React.FC<IProps> = ({
           value={p}
           onMouseEnterGroup={onMouseEnterGroup}
           onMouseLeaveGroup={onMouseLeaveGroup}
+          key={p}
         />
       ))}
     </div>

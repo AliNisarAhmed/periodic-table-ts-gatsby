@@ -25,6 +25,7 @@ const PeriodNumbers: React.FC<IProps> = ({
           value={g}
           onMouseEnterPeriod={onMouseEnterPeriod}
           onMouseLeavePeriod={onMouseLeavePeriod}
+          key={g}
         />
       ))}
     </div>

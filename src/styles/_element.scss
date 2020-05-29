@@ -13,7 +13,8 @@
   transition: all 0.4s;
   transition-property: transform;
 
-  &:hover {
+  &:hover,
+  &:focus {
     padding: 0 0.2rem;
     transform: scaleX(1.6) scaleY(1.6);
     z-index: 2;

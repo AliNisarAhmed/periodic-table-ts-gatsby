@@ -32,6 +32,9 @@ const Element: React.FC<IProps> = ({
       key={element.name}
       className={className}
       onClick={() => openModal(element)}
+      tabIndex={0}
+      role="button"
+      aria-pressed="false"
     >
       <span className="mass">{element.atomic_mass.toFixed(2)}</span>
       <span className="number">{element.number}</span>

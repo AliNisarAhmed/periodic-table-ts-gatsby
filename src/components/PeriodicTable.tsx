@@ -48,6 +48,7 @@ export const PeriodicTable: React.FC<IProps> = ({
                 openModal={openModal}
                 highlightedPeriod={null}
                 highlightedGroup={null}
+                key={elem.symbol}
               />
             ))}
         </div>
@@ -66,6 +67,7 @@ export const PeriodicTable: React.FC<IProps> = ({
                   openModal={openModal}
                   highlightedPeriod={highlightedPeriod}
                   highlightedGroup={highlightedGroup}
+                  key={elem.symbol}
                 />
               ))}
             </div>
@@ -77,6 +79,7 @@ export const PeriodicTable: React.FC<IProps> = ({
                   openModal={openModal}
                   highlightedPeriod={highlightedPeriod}
                   highlightedGroup={highlightedGroup}
+                  key={elem.symbol}
                 />
               ))}
             </div>
