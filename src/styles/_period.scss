@@ -3,6 +3,10 @@
   grid-template-rows: $periodBoxHeight repeat(7, $elementBoxHeight);
   grid-gap: 2px;
   margin-right: 2px;
+
+  &:focus {
+    outline: 1px solid rgba(white, 0.4);
+  }
 }
 
 .period {

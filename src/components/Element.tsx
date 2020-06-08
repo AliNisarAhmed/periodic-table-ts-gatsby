@@ -32,7 +32,6 @@ const Element: React.FC<IProps> = ({
       key={element.name}
       className={className}
       onClick={() => openModal(element)}
-      tabIndex={0}
       role="button"
       aria-pressed="false"
     >

@@ -5,6 +5,12 @@
   display: grid;
   grid-template-columns: repeat(18, 1fr);
   grid-gap: 2px;
+  border: 1px solid transparent;
+
+  &:focus {
+    outline: none;
+    border: 1px solid rgba(white, 0.4);
+  }
 }
 
 .group {
@@ -31,4 +37,8 @@
   &:not(:hover) {
     color: rgba(white, 0.4);
   }
+}
+
+.highlightGroup {
+  outline: 1px solid white;
 }

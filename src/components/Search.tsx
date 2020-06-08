@@ -12,6 +12,7 @@ const Search = ({ searchTerm, onSearchTermChange }) => {
         value={searchTerm}
         onChange={onChange}
         className="search__input"
+        tabIndex={4}
       />
     </div>
   );

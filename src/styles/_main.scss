@@ -40,6 +40,10 @@ body {
   grid-template-columns: $elementBoxWidth $elementBoxWidth 1fr;
   grid-template-rows: repeat(min-content, 3);
   grid-gap: 2px;
+
+  &:focus {
+    outline: 1px solid rgba(white, 0.4);
+  }
 }
 
 .container {

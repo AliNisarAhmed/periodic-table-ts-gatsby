@@ -54,7 +54,7 @@ export const PeriodicTable: React.FC<IProps> = ({
         </div>
       ) : (
         <React.Fragment>
-          <div className="periodicTable">
+          <div className="periodicTable" tabIndex={3}>
             <GroupNumbers
               onMouseEnterGroup={onMouseEnterGroup}
               onMouseLeaveGroup={onMouseLeaveGroup}

@@ -4,16 +4,22 @@ interface IProps {
   value: number;
   onMouseEnterPeriod: (period: number) => void;
   onMouseLeavePeriod: () => void;
+  focusedNumber: number;
 }
 
 const Period: React.FC<IProps> = ({
   value,
   onMouseEnterPeriod,
   onMouseLeavePeriod,
+  focusedNumber,
 }) => {
+  console.log("value", value);
+  console.log("focusedNumber :>> ", focusedNumber);
+  console.log("value === focusedNumber :>> ", value === focusedNumber);
+
   return (
     <div
-      className="period"
+      className={`period ${focusedNumber === value ? "highlightGroup" : null}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
