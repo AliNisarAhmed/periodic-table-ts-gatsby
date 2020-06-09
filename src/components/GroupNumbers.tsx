@@ -35,12 +35,10 @@ const GroupNumbers: React.FC<IProps> = ({
   );
 
   function onFocusHandler(e: FocusEvent<HTMLDivElement>) {
-    console.log("onFocus");
     setFocusedNumber(1);
   }
 
   function onBlurHandler(e: FocusEvent<HTMLDivElement>) {
-    console.log("onBlur");
     setFocusedNumber(null);
   }
 

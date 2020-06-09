@@ -24,6 +24,8 @@ export const PeriodicTable: React.FC<IProps> = ({
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [highlightedGroup, setHighlightedGroup] = useState<number | null>(null);
 
+  const [focusedElement, setFocusedElement] = useState<number | null>(null);
+
   const [normalElements, innerTransitionMetals] = useMemo(
     () =>
       partition(
@@ -49,16 +51,22 @@ export const PeriodicTable: React.FC<IProps> = ({
                 highlightedPeriod={null}
                 highlightedGroup={null}
                 key={elem.symbol}
+                focusedElement={null}
               />
             ))}
         </div>
       ) : (
         <React.Fragment>
-          <div className="periodicTable" tabIndex={3}>
-            <GroupNumbers
-              onMouseEnterGroup={onMouseEnterGroup}
-              onMouseLeaveGroup={onMouseLeaveGroup}
-            />
+          <GroupNumbers
+            onMouseEnterGroup={onMouseEnterGroup}
+            onMouseLeaveGroup={onMouseLeaveGroup}
+          />
+          <div
+            className="periodicTable"
+            tabIndex={3}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+          >
             <div className="container">
               {normalElements.map(elem => (
                 <Element
@@ -68,6 +76,7 @@ export const PeriodicTable: React.FC<IProps> = ({
                   highlightedPeriod={highlightedPeriod}
                   highlightedGroup={highlightedGroup}
                   key={elem.symbol}
+                  focusedElement={focusedElement}
                 />
               ))}
             </div>
@@ -80,6 +89,7 @@ export const PeriodicTable: React.FC<IProps> = ({
                   highlightedPeriod={highlightedPeriod}
                   highlightedGroup={highlightedGroup}
                   key={elem.symbol}
+                  focusedElement={focusedElement}
                 />
               ))}
             </div>
@@ -110,5 +120,15 @@ export const PeriodicTable: React.FC<IProps> = ({
 
   function onMouseLeaveGroup() {
     setHighlightedGroup(null);
+  }
+
+  function handleFocus() {
+    console.log("Periodic Table Focused");
+    setFocusedElement(1);
+  }
+
+  function handleBlur() {
+    console.log("Periodic table blurred");
+    setFocusedElement(null);
   }
 };

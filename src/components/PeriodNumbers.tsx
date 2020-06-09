@@ -41,19 +41,18 @@ const PeriodNumbers: React.FC<IProps> = ({
   );
 
   function onFocusHandler(e: FocusEvent<HTMLDivElement>) {
-    console.log("onFocus");
     setFocusedNumber(1);
   }
 
   function onBlurHandler(e: FocusEvent<HTMLDivElement>) {
-    console.log("onBlur");
     setFocusedNumber(null);
   }
 
   function handleKeyDown(e: KeyboardEvent<HTMLDivElement>) {
     const { key } = e;
     if (key === "ArrowUp") {
-      const newValue = (focusedNumber - 1) % periods.length || 1;
+      const newValue =
+        (focusedNumber - 1) % periods.length || periods.length - 1;
       setFocusedNumber(newValue);
     } else if (key === "ArrowDown") {
       const newValue = (focusedNumber + 1) % periods.length || 1;

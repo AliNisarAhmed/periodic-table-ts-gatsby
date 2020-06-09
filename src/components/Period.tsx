@@ -13,10 +13,6 @@ const Period: React.FC<IProps> = ({
   onMouseLeavePeriod,
   focusedNumber,
 }) => {
-  console.log("value", value);
-  console.log("focusedNumber :>> ", focusedNumber);
-  console.log("value === focusedNumber :>> ", value === focusedNumber);
-
   return (
     <div
       className={`period ${focusedNumber === value ? "highlightGroup" : null}`}
