@@ -15,3 +15,40 @@
     }
   }
 }
+
+@mixin boxFocus {
+  padding: 0 0.2rem;
+  transform: scaleX(1.6) scaleY(1.6);
+  z-index: 2;
+  border: $elementBoxBorder solid goldenrod;
+}
+
+@mixin nameFocus {
+  .name {
+    display: inline-block;
+    grid-row: 3 / -1;
+    grid-column: 1 / -1;
+    justify-self: center;
+
+    transform: scaleX(0.55) scaleY(0.55);
+  }
+}
+
+@mixin numberFocus {
+  .number {
+    display: inline-block;
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    font-size: 60%;
+  }
+}
+
+@mixin massFocus {
+  .mass {
+    display: inline-block;
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    margin-left: auto;
+    font-size: 60%;
+  }
+}

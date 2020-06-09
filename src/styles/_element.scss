@@ -14,36 +14,11 @@
 
   &:hover,
   &:focus {
-    padding: 0 0.2rem;
-    transform: scaleX(1.6) scaleY(1.6);
-    z-index: 2;
-    border: $elementBoxBorder solid goldenrod;
-
     align-items: start;
-
-    .name {
-      display: inline-block;
-      grid-row: 3 / -1;
-      grid-column: 1 / -1;
-      justify-self: center;
-
-      transform: scaleX(0.55) scaleY(0.55);
-    }
-
-    .number {
-      display: inline-block;
-      grid-row: 1 / 2;
-      grid-column: 1 / 2;
-      font-size: 60%;
-    }
-
-    .mass {
-      display: inline-block;
-      grid-row: 1 / 2;
-      grid-column: 2 / 3;
-      margin-left: auto;
-      font-size: 60%;
-    }
+    @include boxFocus;
+    @include nameFocus;
+    @include numberFocus;
+    @include massFocus;
   }
 }
 
@@ -63,26 +38,27 @@
 
 .name {
   display: none;
-  // position: absolute;
-  // bottom: 0;
   transition: opacity 0.4s ease 0.6s;
 }
 
 .number {
   display: none;
-  // position: absolute;
-  // left: 0;
-  // top: 0;
   transition: opacity 0.4s ease 0.6s;
 }
 
 .mass {
   display: none;
-  // position: absolute;
-  // right: 0;
-  // top: 0;
   transition: opacity 1s ease 1s;
 }
+
+.boxFocused {
+  @include boxFocus;
+  @include nameFocus;
+  @include numberFocus;
+  @include massFocus;
+}
+
+// ----
 
 .h {
   grid-column: 1 / 18;

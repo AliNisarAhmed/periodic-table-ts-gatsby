@@ -1,10 +1,11 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, KeyboardEvent } from "react";
 import { IElement } from "../utils/types";
 import Element from "./Element";
 import { partition } from "ramda";
 import ElementDetail from "./ElementDetail";
 import Group from "./Group";
 import GroupNumbers from "./GroupNumbers";
+import { getNextElement, ArrowDirection } from "../utils/helpers";
 
 interface IProps {
   elements: IElement[];
@@ -66,6 +67,7 @@ export const PeriodicTable: React.FC<IProps> = ({
             tabIndex={3}
             onFocus={handleFocus}
             onBlur={handleBlur}
+            onKeyDown={handleKeyDown}
           >
             <div className="container">
               {normalElements.map(elem => (
@@ -123,12 +125,28 @@ export const PeriodicTable: React.FC<IProps> = ({
   }
 
   function handleFocus() {
-    console.log("Periodic Table Focused");
     setFocusedElement(1);
   }
 
   function handleBlur() {
-    console.log("Periodic table blurred");
-    setFocusedElement(null);
+    if (!isModalOpen) {
+      setFocusedElement(null);
+    }
+  }
+
+  function handleKeyDown(e: KeyboardEvent<HTMLDivElement>) {
+    const { key } = e;
+
+    if (key === "Enter") {
+      setSelectedElement(elements.find(e => e.number === focusedElement));
+      setIsModalOpen(true);
+    } else if (key in ArrowDirection) {
+      const nextElement = getNextElement(
+        elements,
+        focusedElement,
+        key as ArrowDirection
+      );
+      setFocusedElement(nextElement?.number);
+    }
   }
 };
