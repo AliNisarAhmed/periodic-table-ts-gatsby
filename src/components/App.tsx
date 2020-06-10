@@ -54,7 +54,9 @@ const App = props => {
 
   return (
     <React.Fragment>
-      <div className="app">
+      <div
+        className={`${searchTerm.trim().length === 0 ? "app" : "app--search"}`}
+      >
         <PeriodNumbers
           onMouseEnterPeriod={onMouseEnterPeriod}
           onMouseLeavePeriod={onMouseLeavePeriod}
