@@ -36,25 +36,31 @@ export const PeriodicTable: React.FC<IProps> = ({
     []
   );
 
+  const searchedElements = elements.filter(elem =>
+    elem.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <React.Fragment>
-      {searchTerm.trim() ? (
-        <div className="searchDisplay">
-          {elements
-            .filter(elem =>
-              elem.name.toLowerCase().includes(searchTerm.toLowerCase())
-            )
-            .map(elem => (
-              <Element
-                element={elem}
-                highlighted={highlighted}
-                openModal={openModal}
-                highlightedPeriod={null}
-                highlightedGroup={null}
-                key={elem.symbol}
-                focusedElement={null}
-              />
-            ))}
+      {searchTerm.length > 0 ? (
+        <div
+          className="searchDisplay"
+          onFocus={handleFocusInSearch(searchedElements[0])}
+          onBlur={handleBlur}
+          onKeyDown={handleKeyDownInSearch(searchedElements)}
+          tabIndex={2}
+        >
+          {searchedElements.map(elem => (
+            <Element
+              element={elem}
+              highlighted={highlighted}
+              openModal={openModal}
+              highlightedPeriod={null}
+              highlightedGroup={null}
+              key={elem.symbol}
+              focusedElement={focusedElement}
+            />
+          ))}
         </div>
       ) : (
         <React.Fragment>
@@ -136,7 +142,6 @@ export const PeriodicTable: React.FC<IProps> = ({
 
   function handleKeyDown(e: KeyboardEvent<HTMLDivElement>) {
     const { key } = e;
-
     if (key === "Enter") {
       setSelectedElement(elements.find(e => e.number === focusedElement));
       setIsModalOpen(true);
@@ -148,5 +153,34 @@ export const PeriodicTable: React.FC<IProps> = ({
       );
       setFocusedElement(nextElement?.number);
     }
+  }
+
+  function handleFocusInSearch(elem: IElement) {
+    return () => setFocusedElement(elem.number);
+  }
+
+  function handleKeyDownInSearch(searchedElements: IElement[]) {
+    return (e: KeyboardEvent<HTMLDivElement>) => {
+      const { key } = e;
+      const currentElement = searchedElements.findIndex(
+        e => e.number === focusedElement
+      );
+
+      let newIndex: number;
+
+      if (key === "ArrowRight") {
+        newIndex = (currentElement + 1) % searchedElements.length;
+        setFocusedElement(searchedElements[newIndex].number);
+      } else if (key === "ArrowLeft") {
+        newIndex =
+          currentElement - 1 < 0
+            ? searchedElements.length - 1
+            : currentElement - 1;
+        setFocusedElement(searchedElements[newIndex].number);
+      } else if (key === "Enter") {
+        setSelectedElement(elements.find(e => e.number === focusedElement));
+        setIsModalOpen(true);
+      }
+    };
   }
 };
