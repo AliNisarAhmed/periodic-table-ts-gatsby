@@ -43,6 +43,8 @@ const Legend: React.FC<IProps> = ({ setHighlighted }) => {
         className="legend__button"
         onClick={openLegend}
         onKeyDown={handleKeyDown}
+        onBlur={handleBlur}
+        onFocus={handleFocus}
       >
         {legendOpen ? "X" : "Legend"}
       </button>
@@ -80,9 +82,26 @@ const Legend: React.FC<IProps> = ({ setHighlighted }) => {
     }
   }
 
+  function handleFocus() {
+    if (legendOpen) {
+      setSelectedGroup(0);
+    }
+  }
+
+  function handleBlur() {
+    setSelectedGroup(null);
+    setHighlighted(null);
+  }
+
   function openLegend() {
-    setLegendOpen(p => !p);
-    setSelectedGroup(0);
+    if (legendOpen) {
+      setLegendOpen(false);
+      setSelectedGroup(null);
+      setHighlighted(null);
+    } else {
+      setLegendOpen(true);
+      setSelectedGroup(0);
+    }
   }
 };
 

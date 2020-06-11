@@ -35,22 +35,30 @@ const GroupNumbers: React.FC<IProps> = ({
   );
 
   function onFocusHandler(e: FocusEvent<HTMLDivElement>) {
-    setFocusedNumber(1);
+    setFocusedNumber(0);
   }
 
   function onBlurHandler(e: FocusEvent<HTMLDivElement>) {
     setFocusedNumber(null);
+    onMouseLeaveGroup();
   }
 
   function handleKeyDown(e: KeyboardEvent<HTMLDivElement>) {
     const { key } = e;
     if (key === "ArrowRight") {
-      const newValue = (focusedNumber + 1) % (groups.length + 1) || 1;
+      const newValue = (focusedNumber % groups.length) + 1;
       setFocusedNumber(newValue);
+      onMouseEnterGroup(newValue);
     } else if (key === "ArrowLeft") {
       const newValue =
-        (focusedNumber - 1) % (groups.length + 1) || groups.length;
+        focusedNumber === 0 || focusedNumber === 1
+          ? groups.length
+          : focusedNumber - 1;
       setFocusedNumber(newValue);
+      onMouseEnterGroup(newValue);
+    } else if (key === "Escape") {
+      setFocusedNumber(0);
+      onMouseLeaveGroup();
     }
   }
 };
