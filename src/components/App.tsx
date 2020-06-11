@@ -8,6 +8,7 @@ import PeriodNumbers from "./PeriodNumbers";
 
 const App = props => {
   const [searchTerm, setSearchTerm] = useState<string>("");
+  // this is the group name that is currentl hovered or selected in the LEGEND
   const [highlighted, setHighlighted] = useState<string | null>(null);
   const [highlightedPeriod, setHighlightedPeriod] = useState<number | null>(
     null

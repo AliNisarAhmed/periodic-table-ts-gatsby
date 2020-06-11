@@ -7,11 +7,11 @@ import {
 
 interface IProps {
   element: IElement;
-  highlighted: string | null;
+  highlighted: string | null; // group selected in Legend
   openModal: any;
   highlightedPeriod: number | null;
   highlightedGroup: number | null;
-  focusedElement: number | null;
+  focusedElement: number | null; // element in focus by keyboard
 }
 
 const Element: React.FC<IProps> = ({

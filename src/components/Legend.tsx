@@ -21,6 +21,8 @@ const legendItems: ILegendItem[] = [
 
 const Legend: React.FC<IProps> = ({ setHighlighted }) => {
   const [legendOpen, setLegendOpen] = useState<boolean>(false);
+
+  // represents the "group" currently in focus by keyboard inside Legend
   const [selectedGroup, setSelectedGroup] = useState<number | null>(null);
 
   return (

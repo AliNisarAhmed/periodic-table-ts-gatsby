@@ -9,11 +9,13 @@ interface IProps {
 
 const periods = Array.from({ length: 8 }, (x, i) => i);
 
+// The numbers on the left, along the y axis
 const PeriodNumbers: React.FC<IProps> = ({
   onMouseEnterPeriod,
   onMouseLeavePeriod,
   searchTerm,
 }) => {
+  // this represents the period number currently focused by the keyboard
   const [focusedNumber, setFocusedNumber] = useState<number | null>(null);
 
   if (searchTerm) {

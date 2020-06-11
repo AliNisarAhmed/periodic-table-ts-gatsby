@@ -8,10 +8,12 @@ interface IProps {
 
 const groups = Array.from({ length: 18 }, (x, i) => i + 1);
 
+// The numbers up top, along the x-axis
 const GroupNumbers: React.FC<IProps> = ({
   onMouseEnterGroup,
   onMouseLeaveGroup,
 }) => {
+  // This represents the group number currently active by keyboard
   const [focusedNumber, setFocusedNumber] = useState<number | null>(null);
 
   return (

@@ -20,10 +20,12 @@ export const PeriodicTable: React.FC<IProps> = ({
   highlighted,
   highlightedPeriod,
 }) => {
+  // represents the element selected for detailed view
   const [selectedElement, setSelectedElement] = useState<IElement | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [highlightedGroup, setHighlightedGroup] = useState<number | null>(null);
 
+  // represents the element currently in focus by Keyboard in the periodic table
   const [focusedElement, setFocusedElement] = useState<number | null>(null);
 
   const [normalElements, innerTransitionMetals] = useMemo(
