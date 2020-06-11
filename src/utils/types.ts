@@ -39,3 +39,8 @@ export type Group
   | "transition_metal"
   | "lanthanoid"
   | "actinoid";
+
+export interface ILegendItem {
+  group: string;
+  text: string;
+}

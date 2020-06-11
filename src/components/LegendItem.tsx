@@ -4,12 +4,22 @@ interface IProps {
   group: string;
   text: string;
   setHighlighted: any;
+  selectedGroup: number | null;
+  position: number;
 }
 
-const LegendItem: React.FC<IProps> = ({ group, text, setHighlighted }) => {
+const LegendItem: React.FC<IProps> = ({
+  group,
+  text,
+  setHighlighted,
+  selectedGroup,
+  position,
+}) => {
   return (
     <div
-      className="legend__item"
+      className={`legend__item ${
+        selectedGroup === position ? "legendFocus" : null
+      }`}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >

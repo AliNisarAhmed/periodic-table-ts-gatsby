@@ -3,7 +3,6 @@ import { IElement } from "../utils/types";
 import Element from "./Element";
 import { partition } from "ramda";
 import ElementDetail from "./ElementDetail";
-import Group from "./Group";
 import GroupNumbers from "./GroupNumbers";
 import { getNextElement, ArrowDirection } from "../utils/helpers";
 
