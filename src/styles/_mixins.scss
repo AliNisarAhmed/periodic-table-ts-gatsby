@@ -58,3 +58,17 @@
   transition: all 0.1s;
   border: 1px dotted rgba(white, 0.4);
 }
+
+@mixin boxFixedProps {
+  width: $elementBoxWidth;
+  height: $elementBoxHeight;
+  font-size: $elementBoxFontSize;
+  cursor: pointer;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 3fr 1fr;
+
+  transition: all 0.4s;
+  transition-property: transform;
+}

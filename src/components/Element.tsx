@@ -3,6 +3,7 @@ import { IElement } from "../utils/types";
 import {
   setPeriodHighlightClassName,
   setGroupHighlightClassName,
+  getPhysicalStateClass,
 } from "../utils/helpers";
 
 interface IProps {
@@ -12,6 +13,8 @@ interface IProps {
   highlightedPeriod: number | null;
   highlightedGroup: number | null;
   focusedElement: number | null; // element in focus by keyboard
+  showPhysicalState: boolean;
+  temperature: number;
 }
 
 const Element: React.FC<IProps> = ({
@@ -21,8 +24,17 @@ const Element: React.FC<IProps> = ({
   highlightedPeriod,
   highlightedGroup,
   focusedElement,
+  showPhysicalState,
+  temperature,
 }) => {
-  const className = `box
+  console.log("showPhysicalState :>> ", showPhysicalState);
+  const className = showPhysicalState
+    ? `physicalBox
+    ${element.symbol.toLowerCase()}
+    ${element.group}
+    ${getPhysicalStateClass(temperature, element)}
+    `
+    : `box
     ${element.symbol.toLowerCase()}
     ${element.group}
     ${highlighted === null ? "" : highlighted === element.group ? "" : "dim"}

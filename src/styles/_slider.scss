@@ -1,0 +1,58 @@
+.slider {
+  &__container {
+    position: absolute;
+    right: $elementBoxWidth + 1rem;
+    top: 1.5rem;
+  }
+
+  &__info {
+    border: 1px solid red;
+    width: 10 * $elementBoxWidth;
+    height: 3 * $elementBoxWidth;
+    position: absolute;
+    left: 2.1 * $elementBoxWidth;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+
+    align-items: center;
+
+    &--temperature {
+      grid-row: 1 / -1;
+      grid-column: 3 / -1;
+
+      color: white;
+      font-size: 3rem;
+    }
+  }
+}
+
+.physicalBox {
+  @include boxFixedProps;
+  color: black;
+
+  &--legend {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+.solid {
+  background-color: $solid;
+  border: $elementBoxBorder solid $solid;
+}
+
+.liquid {
+  background-color: $liquid;
+  border: $elementBoxBorder solid $liquid;
+}
+.gas {
+  background-color: $gas;
+  border: $elementBoxBorder solid $gas;
+}
+
+.unknown {
+  background-color: $unknown;
+  border: $elementBoxBorder solid $unknown;
+}

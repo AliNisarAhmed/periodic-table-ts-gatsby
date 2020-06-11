@@ -1,5 +1,21 @@
 import { IElement } from "./types";
-import { filter, compose, partition, flatten, not, complement } from "ramda";
+import { filter, compose, partition, flatten, complement } from "ramda";
+
+export function getPhysicalStateClass(temp: number, { melt, boil }: IElement): string {
+  if (typeof melt === 'number' && temp < melt) {
+    return `solid`;
+  } else if (
+    typeof boil === 'number' &&
+    typeof melt === 'number' &&
+    temp >= melt &&
+    temp < boil) {
+    return `liquid`
+  } else if (typeof boil === 'number' && temp >= boil) {
+    return `gas`
+  } else {
+    return `unknown`;
+  }
+}
 
 export function setPeriodHighlightClassName(highlightedPeriod: number | null, currentPeriod: number): string {
   if (highlightedPeriod === null) {
@@ -102,3 +118,4 @@ function centrifuge(elements: IElement[], posType: keyof IElement, pos: number):
   const segregate = partition(complement(isInnerTransitionElem));
   return compose(flatten, segregate, filterByPos)(elements);
 }
+

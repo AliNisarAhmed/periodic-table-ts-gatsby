@@ -5,6 +5,7 @@ import { partition } from "ramda";
 import ElementDetail from "./ElementDetail";
 import GroupNumbers from "./GroupNumbers";
 import { getNextElement, ArrowDirection } from "../utils/helpers";
+import TemperatureSlider from "./TemperatureSlider";
 
 interface IProps {
   elements: IElement[];
@@ -27,6 +28,10 @@ export const PeriodicTable: React.FC<IProps> = ({
 
   // represents the element currently in focus by Keyboard in the periodic table
   const [focusedElement, setFocusedElement] = useState<number | null>(null);
+
+  const [temperature, setTemperature] = useState<number>(310);
+
+  const [showPhysicalState, togglePhysicalState] = useState<boolean>(false);
 
   const [normalElements, innerTransitionMetals] = useMemo(
     () =>
@@ -60,6 +65,8 @@ export const PeriodicTable: React.FC<IProps> = ({
               highlightedGroup={null}
               key={elem.symbol}
               focusedElement={focusedElement}
+              showPhysicalState={false}
+              temperature={temperature}
             />
           ))}
         </div>
@@ -77,6 +84,12 @@ export const PeriodicTable: React.FC<IProps> = ({
             onKeyDown={handleKeyDown}
           >
             <div className="container">
+              <TemperatureSlider
+                temperature={temperature}
+                setTemperature={setTemperature}
+                togglePhysicalState={togglePhysicalState}
+                showPhysicalState={showPhysicalState}
+              />
               {normalElements.map(elem => (
                 <Element
                   element={elem}
@@ -86,6 +99,8 @@ export const PeriodicTable: React.FC<IProps> = ({
                   highlightedGroup={highlightedGroup}
                   key={elem.symbol}
                   focusedElement={focusedElement}
+                  showPhysicalState={showPhysicalState}
+                  temperature={temperature}
                 />
               ))}
             </div>
@@ -99,6 +114,8 @@ export const PeriodicTable: React.FC<IProps> = ({
                   highlightedGroup={highlightedGroup}
                   key={elem.symbol}
                   focusedElement={focusedElement}
+                  showPhysicalState={showPhysicalState}
+                  temperature={temperature}
                 />
               ))}
             </div>
