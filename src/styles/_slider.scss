@@ -11,16 +11,21 @@
   }
 
   &__text {
-    width: 44px;
-
     border-radius: 1rem;
     background-color: $black;
     color: white;
-    padding: 0 6px;
+    text-align: center;
+
+    width: 8rem;
+    font-size: 2rem;
+
+    &:focus {
+      border: 1px solid magenta;
+    }
   }
 
   &__range {
-    width: 4 * $elementBoxWidth;
+    width: 3.5 * $elementBoxWidth;
   }
 
   &__info {

@@ -87,11 +87,7 @@ const TemperatureSlider: React.FC<IProps> = ({
   }
 
   function handleKeyDown(e: KeyboardEvent<HTMLInputElement>) {
-    const { key } = e;
-
-    if (key === "Enter") {
-      e.preventDefault();
-    }
+    togglePhysicalState(true);
   }
 
   function handleTemperatureInput(e: ChangeEvent<HTMLInputElement>) {
