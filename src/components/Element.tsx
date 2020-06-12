@@ -27,7 +27,6 @@ const Element: React.FC<IProps> = ({
   showPhysicalState,
   temperature,
 }) => {
-  console.log("showPhysicalState :>> ", showPhysicalState);
   const className = showPhysicalState
     ? `physicalBox
     ${element.symbol.toLowerCase()}

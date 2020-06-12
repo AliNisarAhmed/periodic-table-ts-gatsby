@@ -1,5 +1,6 @@
 import React, { FocusEvent, useState, KeyboardEvent } from "react";
 import Group from "./Group";
+import { tabIndex } from "../utils/helpers";
 
 interface IProps {
   onMouseEnterGroup: (period: number) => void;
@@ -19,7 +20,7 @@ const GroupNumbers: React.FC<IProps> = ({
   return (
     <div
       className="groupNumbers"
-      tabIndex={2}
+      tabIndex={tabIndex.groupNumbers}
       onFocus={onFocusHandler}
       onBlur={onBlurHandler}
       onKeyDown={handleKeyDown}

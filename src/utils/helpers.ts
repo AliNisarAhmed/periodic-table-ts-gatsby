@@ -123,3 +123,13 @@ function centrifuge(elements: IElement[], posType: keyof IElement, pos: number):
   return compose(flatten, segregate, filterByPos)(elements);
 }
 
+export const tabIndex = {
+  periodNumbers: 1,
+  groupNumbers: 2,
+  periodicTable: 3,
+  temperatureSlider: 4,
+  temperatureInput: 5,
+  search: 6,
+  legend: 7
+}
+

@@ -1,5 +1,6 @@
 import React, { useState, FocusEvent, KeyboardEvent } from "react";
 import Period from "./Period";
+import { tabIndex } from "../utils/helpers";
 
 interface IProps {
   onMouseEnterPeriod: (period: number) => void;
@@ -25,7 +26,7 @@ const PeriodNumbers: React.FC<IProps> = ({
   return (
     <div
       className="periodNumbers"
-      tabIndex={1}
+      tabIndex={tabIndex.periodNumbers}
       onFocus={onFocusHandler}
       onBlur={onBlurHandler}
       onKeyDown={handleKeyDown}

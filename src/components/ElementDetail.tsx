@@ -13,7 +13,7 @@ const ElementDetail: React.FC<IProps> = ({
   closeModal,
   element,
 }) => {
-  if (element === null) {
+  if (!element) {
     return null;
   }
 

@@ -3,6 +3,24 @@
     position: absolute;
     right: $elementBoxWidth + 1rem;
     top: 1.5rem;
+
+    width: 5 * $elementBoxWidth;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__text {
+    width: 44px;
+
+    border-radius: 1rem;
+    background-color: $black;
+    color: white;
+    padding: 0 6px;
+  }
+
+  &__range {
+    width: 4 * $elementBoxWidth;
   }
 
   &__info {

@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from "react";
+import { tabIndex } from "../utils/helpers";
 
 const Search = ({ searchTerm, onSearchTermChange }) => {
   return (
@@ -12,7 +13,7 @@ const Search = ({ searchTerm, onSearchTermChange }) => {
         value={searchTerm}
         onChange={onChange}
         className="search__input"
-        tabIndex={4}
+        tabIndex={tabIndex.search}
       />
     </div>
   );

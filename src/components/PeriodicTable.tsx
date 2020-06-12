@@ -4,7 +4,7 @@ import Element from "./Element";
 import { partition } from "ramda";
 import ElementDetail from "./ElementDetail";
 import GroupNumbers from "./GroupNumbers";
-import { getNextElement, ArrowDirection } from "../utils/helpers";
+import { getNextElement, ArrowDirection, tabIndex } from "../utils/helpers";
 import TemperatureSlider from "./TemperatureSlider";
 
 interface IProps {
@@ -54,7 +54,7 @@ export const PeriodicTable: React.FC<IProps> = ({
           onFocus={handleFocusInSearch(searchedElements[0])}
           onBlur={handleBlur}
           onKeyDown={handleKeyDownInSearch(searchedElements)}
-          tabIndex={2}
+          tabIndex={tabIndex.periodicTable}
         >
           {searchedElements.map(elem => (
             <Element
@@ -78,7 +78,7 @@ export const PeriodicTable: React.FC<IProps> = ({
           />
           <div
             className="periodicTable"
-            tabIndex={3}
+            tabIndex={tabIndex.periodicTable}
             onFocus={handleFocus}
             onBlur={handleBlur}
             onKeyDown={handleKeyDown}
