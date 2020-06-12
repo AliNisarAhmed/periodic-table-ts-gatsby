@@ -17,6 +17,10 @@ export function getPhysicalStateClass(temp: number, { melt, boil }: IElement): s
   }
 }
 
+export function convertToFahrenheit(kelvin: number): string {
+  return (((Number(kelvin) - 273) * 9) / 5 + 32).toFixed(0)
+}
+
 export function setPeriodHighlightClassName(highlightedPeriod: number | null, currentPeriod: number): string {
   if (highlightedPeriod === null) {
     return '';

@@ -6,7 +6,6 @@
   }
 
   &__info {
-    border: 1px solid red;
     width: 10 * $elementBoxWidth;
     height: 3 * $elementBoxWidth;
     position: absolute;
@@ -17,13 +16,37 @@
     grid-template-rows: 1fr 1fr 1fr 1fr;
 
     align-items: center;
+    justify-items: center;
+
+    &--legend {
+      grid-row: 1 / -1;
+      grid-column: 1 / 4;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+
+      justify-items: start;
+
+      width: 80%;
+    }
+
+    &--legendItem {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
 
     &--temperature {
       grid-row: 1 / -1;
-      grid-column: 3 / -1;
+      grid-column: 4 / -1;
 
       color: white;
       font-size: 3rem;
+    }
+
+    &--unit {
+      color: $liquid;
     }
   }
 }
@@ -33,8 +56,18 @@
   color: black;
 
   &--legend {
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
+
+    .symbol {
+      font-size: 1.8rem;
+    }
+  }
+
+  &--label {
+    color: white;
+    margin-left: 1rem;
+    font-size: 2rem;
   }
 }
 

@@ -1,4 +1,6 @@
 import React from "react";
+import { convertToFahrenheit } from "../utils/helpers";
+import SliderLegendItem from "./SliderLegendItem";
 
 interface IProps {
   temperature: number | null;
@@ -24,30 +26,30 @@ const TemperatureSlider: React.FC<IProps> = ({
           onChange={onChange}
           onMouseDown={() => togglePhysicalState(true)}
           onMouseUp={() => togglePhysicalState(false)}
-          tabIndex={0}
+          tabIndex={-1}
           step={1}
         />
       </div>
       {showPhysicalState && (
         <div className="slider__info">
           <div className="slider__info--legend">
-            <div className="physicalBox--legend solid">
-              <span className="symbol">C</span>
-            </div>
-            <div className="physicalBox--legend liquid">
-              <span className="symbol">Hg</span>
-            </div>
-            <div className="physicalBox--legend gas">
-              <span className="symbol">H</span>
-            </div>
-            <div className="physicalBox--legend unknown">
-              <span className="symbol">Rf</span>
-            </div>
+            <SliderLegendItem symbol="C" label="Solid" />
+            <SliderLegendItem symbol="Hg" label="Liquid" />
+            <SliderLegendItem symbol="H" label="Gas" />
+            <SliderLegendItem symbol="Rf" label="Unknown" />
           </div>
           <div className="slider__info--temperature">
-            <p>{temperature} K</p>
-            <p>{Number(temperature) - 273} &deg;C</p>
-            <p>{((Number(temperature) - 273) * 9) / 5 + 32} &deg;F</p>
+            <p>
+              {temperature} <span className="slider__info--unit">K</span>
+            </p>
+            <p>
+              {Number(temperature) - 273}
+              <span className="slider__info--unit">&deg;C</span>
+            </p>
+            <p>
+              {convertToFahrenheit(temperature)}{" "}
+              <span className="slider__info--unit">&deg;F</span>
+            </p>
           </div>
         </div>
       )}
